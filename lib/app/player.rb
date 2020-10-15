@@ -1,8 +1,4 @@
 
-# def ask_name
-#     puts "Salut, quel est ton nom ?"
-#     name = gets.chomp
-# end
 
 class Player
     attr_accessor :name , :symbol
@@ -12,8 +8,9 @@ class Player
         @symbol = user_symbol
     end
 
-    def def ask_place
+    def ask_place
         puts "quel emplacement souhaites-tu ?"
+        print ">"
         case_choosen = gets.chomp
 
         case case_choosen
