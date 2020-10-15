@@ -31,6 +31,9 @@ def initialize
         end
     end
 
-    def even_game_announcement
-        
+    def draw_game_announcement
+        if Game.draw_game == true 
+            puts "Le jeu est terminé sur un match nul ! too bad !!"
+        end
     end
+
