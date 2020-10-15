@@ -19,24 +19,9 @@ class Game
         name = gets.chomp
     end
 
-    def play_each_turn
-
-    
-        puts "Hello #{@player1.name}, c'est à toi de jouer"
-        ask_place(@player1)
-        
-        
-        win_announcement(@player1)
-        # draw_game_announcement
-        if turn == 
-                    puts "match nul"
-                    break
-                end
-        
-        puts "Hello #{@player2.name}, c'est à toi de jouer"
-        ask_place(@player2)
-
-    
+    def play_each_turn(player)
+        puts "Hello #{player.name}, c'est à toi de jouer"
+        ask_place(player)
     end
 
     def ask_place(player)
@@ -133,12 +118,19 @@ class Game
         end
     end
 
+    def break_when
+      if @game_board.victory == true
+         return true
+      else
+        return false
+      end  
+  end
+
     def win_announcement(player)
         if @game_board.victory == true
             puts "Victoire, #{player.name}, tu as gagné"
             gets.chomp
             play_again
-
         end
 
     end

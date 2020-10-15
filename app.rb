@@ -23,15 +23,24 @@ class App
 	def full_game
 		turn = 0
 		while @morpion.is_still_ongoing == true
-			
-			@morpion.play_each_turn
-			turn += 1
-			@morpion.win_announcement(@morpion.player2)
-        	
-		end
+      @morpion.play_each_turn(@morpion.player1)
+      
+      if @morpion.break_when == true
+        @morpion.win_announcement(@morpion.player1)
+        break
+      end
+      turn += 1
+      if turn == 9 && @morpion.break_when == false
+        puts "match nul"
+        @morpion.play_again
+      end
+      @morpion.play_each_turn(@morpion.player2)
+      @morpion.win_announcement(@morpion.player2)
+      turn += 1	
+    end
+    turn = 0
+    full_game
 	end
-
-
 	
 end
 #binding.pry
